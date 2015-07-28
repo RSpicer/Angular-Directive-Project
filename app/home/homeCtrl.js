@@ -1,4 +1,4 @@
-app.controller('homeCtrl', function($scope) {
+app.controller('homeCtrl', function($scope, weatherService) {
 	$scope.users = [
 		{
 		  name: "Geoff McMammy",
@@ -31,4 +31,8 @@ app.controller('homeCtrl', function($scope) {
 		  city: "Phoenix"
 		}
 	]
+	$scope.currentUser = $scope.users[0];
+	$scope.getWeather = function (city) {
+		return weatherService.getWeather(city);
+	}
 })
